@@ -1,12 +1,30 @@
 public class Comprador{
     private String sonido;
+    private Expendedor exp;
     private int vuelto;
-    public Comprador(Moneda m, int cualBebida, Expendedor exp){
+    public Comprador(Moneda m, int cualProducto, Expendedor exp){
+        this.exp = exp;
+        Producto a = exp.comprarProducto(m, cualProducto);
 
-        Bebida a = exp.comprarBebida(m, cualBebida);
+        //Modifiqué el codigo para que funcione con producto pero tira null
 
         if (a== null) sonido = null;
-        else sonido = a.beber();
+        else{
+            sonido = a.sonido();
+        }
+        /*
+        else if (a instanceof Bebida){
+            Producto producto = new Producto(000);
+            Bebida b = (Bebida) producto;
+            sonido = b.beber();
+        }else if( a instanceof Dulce){
+            Producto producto = new Producto(000);
+            Dulce d = (Dulce) producto;
+            sonido = d.comer();
+        }
+
+         */
+
 
         boolean b = true ;
         while(b){
@@ -17,5 +35,5 @@ public class Comprador{
         }
     }
     public int cuantoVuelto(){ return vuelto; }
-    public String queBebiste(){ return sonido; }
+    public String queConsumiste(){ return sonido; }
 }

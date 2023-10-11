@@ -1,6 +1,15 @@
-public abstract class Bebida{
-    private int serie;
-    public Bebida(int serie){ this.serie = serie; }
+public abstract class Bebida extends Producto{
+    //private int serie;
+    public Bebida(int serie){
+        super(serie);
+        //this.serie = serie;
+    }
     public int getSerie() { return serie; }
-    public abstract String beber();
+
+    @Override
+    public String sonido() {
+        return null;
+    }
+
+    //public abstract String beber();
 }

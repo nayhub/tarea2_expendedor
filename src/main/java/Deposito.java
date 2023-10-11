@@ -1,14 +1,15 @@
 import java.util.ArrayList;
 
 public class Deposito{
-    private ArrayList<Bebida> al;
+    private ArrayList<Producto> al;
+    //private ArrayList<Dulce> dulces;
     public Deposito(){ al = new ArrayList<>(); }
-    public void addBebida(Bebida b){ al.add(b); }
-    public Bebida getBebida(){
+    public void addProducto(Producto b){ al.add(b); }
+    public Producto getProducto(){
 
         if(al.size()==0) return null;
 
-        Bebida b = al.remove(0);
+        Producto b = al.remove(0);
         return b;
     }
 }

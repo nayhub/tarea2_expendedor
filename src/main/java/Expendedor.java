@@ -1,6 +1,7 @@
 public class Expendedor {
     private Deposito coca;
     private Deposito sprite;
+    private Deposito Super8;
     private DepositoM monVu;
     private  int precio;
     public static final int  COCA = 1;
@@ -8,20 +9,25 @@ public class Expendedor {
     public Expendedor(int numBebidas, int precioBebidas) {
         coca = new Deposito();
         sprite = new Deposito();
+        Super8 = new Deposito();
         monVu = new DepositoM();
         precio = precioBebidas;
 
         for (int i = 0; i < numBebidas; i++) {
-            Bebida cc = new CocaCola(100 + i);
-            coca.addBebida(cc);
-            Bebida sp = new Sprite(200 + i);
-            sprite.addBebida(sp);
+            Producto cc = new CocaCola(100 + i);
+            coca.addProducto(cc);
+            Producto sp = new Sprite(200 + i);
+            sprite.addProducto(sp);
+            Producto s8 = new Super8(000 + i);
+            Super8.addProducto(s8);
+
         }
     }
-    public Bebida comprarBebida(Moneda m, int n) {
+
+    public Producto comprarProducto(Moneda m, int n) {
         if (m != null && m.getValor() >= precio) {
             if (n == 1) {
-                Bebida b = coca.getBebida();
+                Producto b = coca.getProducto();
                 if (b != null) {
                     for (int i = 0; i < (m.getValor() - precio) / 100; i++) {
 
@@ -33,7 +39,7 @@ public class Expendedor {
                 }
             }else if (n == 2){
 
-                Bebida b = sprite.getBebida();
+                Producto b = sprite.getProducto();
 
                 if (b != null) {
                     for (int i = 0; i < (m.getValor() - precio) / 100; i++) {
@@ -43,7 +49,20 @@ public class Expendedor {
                     }
                     return b;
                 }
-            }else{
+            }else if (n == 3){
+                Producto d = Super8.getProducto();
+
+                if(d != null){
+                    for(int i = 0; i < (m.getValor() - precio) / 100;i++){
+
+                        Moneda a = new Moneda100();
+                        monVu.addMoneda(a);
+                    }
+                }
+
+                return d;
+            }
+            else{
                 monVu.addMoneda(m);
                 return null;
             }
