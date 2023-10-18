@@ -8,14 +8,14 @@ public class Expendedor {
     private  int precio;
     //public static final int  COCA = 1;
     //public static final int  SPRITE = 2;
-    public Expendedor(int numBebidas, int precioBebidas) {
+    public Expendedor(int numBebidas) {
         coca = new Deposito<>();
         sprite = new Deposito<>();
         fanta = new Deposito<>();
         Super8 = new Deposito<>();
         snikers = new Deposito<>();
         monVu = new DepositoM();
-        precio = precioBebidas;
+        //precio = precioBebidas;
 
         for (int i = 0; i < numBebidas; i++) {
             Producto cc = new CocaCola(100 + i);
@@ -33,52 +33,52 @@ public class Expendedor {
     }
 
     public Producto comprarProducto(Moneda m, int n) throws NoHayProductoException, NullPointerException, PagoInsuficienteException {
-        if (m == null)
-            throw new PagoIncorrectoException("Pago Invalido");
-        if (m != null && m.getValor() >= precio) {
-            if (n == seleccionarProducto.coca.getOpcion()) {
+        //if (m == null)
+            //throw new PagoIncorrectoException("Pago Invalido");
+        if (m != null) {
+            if (n == seleccionarProducto.coca.getOpcion() && m.getValor() >= seleccionarProducto.coca.getValor()) {
                 Producto b = coca.getProducto();
                 if (b != null) {
-                    for (int i = 0; i < (m.getValor() - precio) / 100; i++) {
+                    for (int i = 0; i < (m.getValor() - seleccionarProducto.coca.getValor()) / 100; i++) {
                         Moneda a = new Moneda100();
                         monVu.addMoneda(a);
                     }
                 }
                 return b;
-            }else if (n == seleccionarProducto.sprite.getOpcion()){
+            }else if (n == seleccionarProducto.sprite.getOpcion() && m.getValor() >= seleccionarProducto.sprite.getValor()){
                 Producto b = sprite.getProducto();
                 if (b != null) {
-                    for (int i = 0; i < (m.getValor() - precio) / 100; i++) {
+                    for (int i = 0; i < (m.getValor() - seleccionarProducto.sprite.getValor()) / 100; i++) {
                         Moneda a = new Moneda100();
                         monVu.addMoneda(a);
                     }
                 }
                 return b;
-            }else if (n == seleccionarProducto.fanta.getOpcion() ){
+            }else if (n == seleccionarProducto.fanta.getOpcion() &&  m.getValor() >= seleccionarProducto.fanta.getValor()){
                 Producto b = fanta.getProducto();
                 if(b != null){
-                    for(int i = 0; i < (m.getValor() - precio) / 100;i++){
+                    for(int i = 0; i < (m.getValor() - seleccionarProducto.fanta.getValor()) / 100;i++){
                         Moneda a = new Moneda100();
                         monVu.addMoneda(a);
                     }
                 }
                 return b;
-            }else if (n == seleccionarProducto.super8.getOpcion()){
+            }else if (n == seleccionarProducto.super8.getOpcion() && m.getValor() >= seleccionarProducto.super8.getValor()){
                 Producto d = Super8.getProducto();
 
                 if(d != null){
-                    for(int i = 0; i < (m.getValor() - precio) / 100;i++){
+                    for(int i = 0; i < (m.getValor() - seleccionarProducto.super8.getValor()) / 100;i++){
 
                         Moneda a = new Moneda100();
                         monVu.addMoneda(a);
                     }
                 }
                 return d;
-            }else if (n == seleccionarProducto.snickers.getOpcion()){
+            }else if (n == seleccionarProducto.snickers.getOpcion() && m.getValor() >= seleccionarProducto.snickers.getValor()){
                 Producto d = snikers.getProducto();
 
                 if(d != null){
-                    for(int i = 0; i < (m.getValor() - precio) / 100;i++){
+                    for(int i = 0; i < (m.getValor() - seleccionarProducto.snickers.getValor()) / 100;i++){
 
                         Moneda a = new Moneda100();
                         monVu.addMoneda(a);
@@ -91,11 +91,9 @@ public class Expendedor {
                 return null;
             }
         }else {
-            //monVu.addMoneda(m);
-            //return null;
+            monVu.addMoneda(m);
+            return null;
         }
-        //monVu.addMoneda(m);
-        return null;
     }
     public int getPrecio(){ return precio; }
     public Moneda getVuelto(){ return monVu.getMoneda(); }
