@@ -1,8 +1,8 @@
-public class Comprador{
+public class Comprador {
     private String sonido;
     private Expendedor exp;
     private int vuelto;
-    public Comprador(Moneda m, int cualProducto, Expendedor exp){
+    public Comprador(Moneda m, int cualProducto, Expendedor exp) throws PagoInsuficienteException, NoHayProductoException{
         this.exp = exp;
         Producto a = exp.comprarProducto(m, cualProducto);
 
