@@ -4,6 +4,6 @@ public CocaCola(int s){ super(s); }
 
     @Override
     public String sonido() {
-        return super.sonido();
+        return "cocacola";
     }
 }
