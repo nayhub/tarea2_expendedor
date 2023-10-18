@@ -2,7 +2,11 @@ public class Main {
     public static void main(String[] args) {
         Expendedor exp = new Expendedor(5,300);
         Moneda1000 m1000 = new Moneda1000();
-        Comprador comprador = new Comprador(m1000, seleccionarProducto.fanta.getOpcion(), exp);
+        Moneda100 m100 = new Moneda100();
+        Moneda500 m500 = new Moneda500();
+        Moneda1500 m1500 = new Moneda1500();
+
+        Comprador comprador = new Comprador(m1000, seleccionarProducto.coca.getOpcion(), exp);
 
         Moneda m = null;
         Comprador c=null;
