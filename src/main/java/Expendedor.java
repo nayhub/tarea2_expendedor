@@ -32,7 +32,9 @@ public class Expendedor {
         }
     }
 
-    public Producto comprarProducto(Moneda m, int n) {
+    public Producto comprarProducto(Moneda m, int n) throws NoHayProductoException, NullPointerException, PagoInsuficienteException {
+        if (m == null)
+            throw new PagoIncorrectoException("Pago Invalido");
         if (m != null && m.getValor() >= precio) {
             if (n == seleccionarProducto.coca.getOpcion()) {
                 Producto b = coca.getProducto();
