@@ -8,4 +8,5 @@ public abstract class Moneda implements Comparable <Moneda> {
 
     public Moneda getSerie() { return this; }
     public abstract int getValor();
+
 }
