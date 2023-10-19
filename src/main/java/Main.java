@@ -40,28 +40,31 @@ public class Main {
 
          */
 
-        Expendedor exp = new Expendedor(0);
-        Comprador c = null;
+        Expendedor exp = new Expendedor(2);
         Moneda m = null;
+        Comprador comprador = null;
 
         try {
-         Moneda1000 m1000 = new Moneda1000();
-         Moneda100 m100 = new Moneda100();
-         Moneda500 m500 = new Moneda500();
-         Moneda1500 m1500 = new Moneda1500();
-         Comprador comprador = new Comprador(m100, seleccionarProducto.coca.getOpcion(), exp);
+            Moneda1000 m1000 = new Moneda1000();
+            Moneda100 m100 = new Moneda100();
+            Moneda500 m500 = new Moneda500();
+            Moneda1500 m1500 = new Moneda1500();
 
-         System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
+            comprador = new Comprador(m100, seleccionarProducto.sprite.getOpcion(), exp);
 
-         } catch (PagoInsuficienteException ins) {
-            int devolucion = m.getValor();
-            System.out.println("No le alcanza, " + "tenga su devolucion " + devolucion);
-         } catch (NoHayProductoException noHay) {
-            int devolucion = m.getValor();
-            System.out.println("No queda el dulce o bebida elegido," + "devolucion " + devolucion);
-         } catch (PagoIncorrectoException ErrorEnPago) {
+            System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
+            System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
+            System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
+
+        } catch (PagoInsuficienteException ins) {
+            //nt a = comprador.cuantoVuelto();
+            System.out.println("No le alcanza, " + "tenga su devolucion "  );
+        } catch (NoHayProductoException noHay) {
+            //int a = comprador.cuantoVuelto();
+            System.out.println("No queda el dulce o bebida elegido," + "devolucion" );
+        } catch (PagoIncorrectoException ErrorEnPago) {
             System.out.println("Error en su pago, intente nuevamente");
-         }
-
         }
+
+    }
     }
