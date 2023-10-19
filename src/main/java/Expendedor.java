@@ -127,10 +127,6 @@ public class Expendedor {
                 return null;
         }
     }
-
-    public int getPrecio () {
-        return precio;
-    }
     public Moneda getVuelto() {
         return monVu.getMoneda();
     }
