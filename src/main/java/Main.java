@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
+        /*
+
         {
             Expendedor exp = new Expendedor(5);
             Moneda1000 m1000 = new Moneda1000();
@@ -27,7 +29,7 @@ public class Main {
                 throw new RuntimeException(e);
             }
 
-             */
+
 
             System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
 
@@ -35,8 +37,10 @@ public class Main {
             //Comprador c=null;
             //exp.comprarProducto(m,3);
         }
-/*
-        Expendedor exp = new Expendedor(5, 300);
+
+         */
+
+        Expendedor exp = new Expendedor(0);
         Comprador c = null;
         Moneda m = null;
 
@@ -45,7 +49,7 @@ public class Main {
          Moneda100 m100 = new Moneda100();
          Moneda500 m500 = new Moneda500();
          Moneda1500 m1500 = new Moneda1500();
-         Comprador comprador = new Comprador(null, seleccionarProducto.coca.getOpcion(), exp);
+         Comprador comprador = new Comprador(m100, seleccionarProducto.coca.getOpcion(), exp);
 
          System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
 
@@ -59,7 +63,5 @@ public class Main {
             System.out.println("Error en su pago, intente nuevamente");
          }
 
-
- */
         }
     }
