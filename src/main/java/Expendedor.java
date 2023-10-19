@@ -32,9 +32,9 @@ public class Expendedor {
         }
     }
 
-    public Producto comprarProducto(Moneda m, int n) throws NoHayProductoException, NullPointerException, PagoInsuficienteException {
-        //if (m == null)
-            //throw new PagoIncorrectoException("Pago Invalido");
+    public Producto comprarProducto(Moneda m, int n) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
+        if (m == null)
+            throw new PagoIncorrectoException("Pago Invalido");
         if (m != null) {
             if (n == seleccionarProducto.coca.getOpcion() && m.getValor() >= seleccionarProducto.coca.getValor()) {
                 Producto b = coca.getProducto();
@@ -44,7 +44,13 @@ public class Expendedor {
                         monVu.addMoneda(a);
                     }
                 }
-                return b;
+            if (b == null) {
+                throw new NoHayProductoException("No hay producto disponible");
+                }
+            if (m.getValor() < seleccionarProducto.coca.getValor()) {
+              throw new PagoInsuficienteException("Pago insuficiente");
+            }
+           return b;
             }else if (n == seleccionarProducto.sprite.getOpcion() && m.getValor() >= seleccionarProducto.sprite.getValor()){
                 Producto b = sprite.getProducto();
                 if (b != null) {
