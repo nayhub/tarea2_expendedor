@@ -1,15 +1,28 @@
+/**
+ * Clase abstracta que representa una bebida.
+ * Hereda de la clase Producto.
+ */
 public abstract class Bebida extends Producto{
-    //private int serie;
+    /**
+     * Constructor de la clase Bebida.
+     * @param serie El número de serie de la bebida.
+     */
     public Bebida(int serie){
         super(serie);
-        //this.serie = serie;
     }
+    /**
+     * Método que devuelve el número de serie de la bebida.
+     * @return El número de serie de la bebida.
+     */
     public int getSerie() { return serie; }
 
+    /**
+     * Método que devuelve el nombre de la bebida
+     * @return El nombre de la bebida
+     */
     @Override
     public String sonido() {
         return null;
     }
 
-    //public abstract String beber();
 }

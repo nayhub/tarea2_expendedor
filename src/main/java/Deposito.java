@@ -1,10 +1,23 @@
 import java.util.ArrayList;
-
+/**
+ * Clase que representa un depósito.
+ * @param <T> El tipo de objeto que se almacena en el depósito.
+ */
 public class Deposito<T>{
     private ArrayList<T> al;
-    //private ArrayList<Dulce> dulces;
+    /**
+     * Constructor de la clase Deposito.
+     */
     public Deposito(){ al = new ArrayList<>(); }
+    /**
+     * Método que agrega un producto al depósito.
+     * @param b El producto a agregar al depósito.
+     */
     public void addProducto(T b){ al.add(b); }
+    /**
+     * Método que devuelve el primer producto del depósito y lo elimina del mismo.
+     * @return El primer producto del depósito.
+     */
     public T getProducto(){
 
         if(al.size()==0) return null;

@@ -1,3 +1,6 @@
+/**
+ * Clase que representa un expendedor.
+ */
 public class Expendedor {
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
@@ -9,6 +12,10 @@ public class Expendedor {
 
     //public static final int  COCA = 1;
     //public static final int  SPRITE = 2;
+    /**
+     * Constructor de la clase Expendedor.
+     * @param numBebidas El número de bebidas disponibles en el expendedor.
+     */
     public Expendedor(int numBebidas) {
         coca = new Deposito<>();
         sprite = new Deposito<>();
@@ -32,6 +39,15 @@ public class Expendedor {
 
         }
     }
+    /**
+     * Método que permite comprar un producto del expendedor.
+     * @param m La moneda utilizada para la compra.
+     * @param n El número del producto a comprar.
+     * @return El producto comprado.
+     * @throws NoHayProductoException Si no hay suficientes unidades del producto para la venta.
+     * @throws PagoIncorrectoException Si la moneda es nula.
+     * @throws PagoInsuficienteException Si el pago es insuficiente para comprar el producto.
+     */
 
     public Producto comprarProducto(Moneda m, int n) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
         if (m == null) throw new PagoIncorrectoException("Pago Invalido");
@@ -127,6 +143,10 @@ public class Expendedor {
                 return null;
         }
     }
+    /**
+     * Método que devuelve el vuelto del comprador.
+     * @return El vuelto del comprador en forma de monedas de 100.
+     */
     public Moneda getVuelto() {
         return monVu.getMoneda();
     }
