@@ -10,8 +10,6 @@ public class Expendedor {
     private DepositoM monVu;
     private int precio;
 
-    //public static final int  COCA = 1;
-    //public static final int  SPRITE = 2;
     /**
      * Constructor de la clase Expendedor.
      * @param numBebidas El número de bebidas disponibles en el expendedor.
@@ -148,9 +146,9 @@ public class Expendedor {
      * @return El vuelto del comprador en forma de monedas de 100.
      */
     public Moneda getVuelto() {
-        return monVu.getMoneda();
+            return monVu.getMoneda();
+        }
     }
-}
 
     /*                } else if (n == seleccionarProducto.sprite.getOpcion() && m.getValor() >= seleccionarProducto.sprite.getValor()) {
                         Producto b = sprite.getProducto();
