@@ -40,7 +40,7 @@ public class Main {
 
          */
 
-        Expendedor exp = new Expendedor(2);
+        Expendedor exp = new Expendedor(6);
         Moneda m = null;
         Comprador comprador = null;
 
@@ -50,21 +50,18 @@ public class Main {
             Moneda500 m500 = new Moneda500();
             Moneda1500 m1500 = new Moneda1500();
 
-            comprador = new Comprador(m100, seleccionarProducto.sprite.getOpcion(), exp);
+            comprador = new Comprador(m1500, seleccionarProducto.sprite.getOpcion(), exp);
 
-            System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
-            System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
             System.out.println(comprador.queConsumiste() + "\n" + comprador.cuantoVuelto());
 
         } catch (PagoInsuficienteException ins) {
-            //nt a = comprador.cuantoVuelto();
-            System.out.println("No le alcanza, " + "tenga su devolucion "  );
+            //int a = comprador.cuantoVuelto();
+            System.out.println("No le alcanza el producto");
         } catch (NoHayProductoException noHay) {
             //int a = comprador.cuantoVuelto();
-            System.out.println("No queda el dulce o bebida elegido," + "devolucion" );
+            System.out.println("No queda el dulce o bebida elegido");
         } catch (PagoIncorrectoException ErrorEnPago) {
             System.out.println("Error en su pago, intente nuevamente");
         }
-
     }
     }
